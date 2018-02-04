@@ -3,6 +3,8 @@ let app = require('../app');
 // let Member = require('../Member.model');
 let session = require('express-session');
 let path = require('path');
+let fs = require('fs');
+
 
 let sess;
 
@@ -17,16 +19,16 @@ app.use(function(req, res, next) {
     const adminRoutes = ['/admin'];
     const allowedRoutes = ['/login', '/'];
 
-    if (allowedRoutes.indexOf(req.originalUrl) > -1) {
-        next();
-    } else if (sess.user == null) {
-        res.send(401);
-    } else if (sess.user.name == 'user') {
-        next();
+    // if (allowedRoutes.indexOf(req.originalUrl) > -1) {
+    //     next();
+    // } else if (sess.user == null) {
+    //     res.send(401);
+    // } else if (sess.user.name == 'user') {
+    next();
 
-        // if (adminRoutes.indexOf(req.originalUrl) > -1) {
-        //     res.send(401, 'only admins');
-    }
+    // if (adminRoutes.indexOf(req.originalUrl) > -1) {
+    //     res.send(401, 'only admins');
+    // }
 
 
 });
@@ -34,6 +36,13 @@ app.use(function(req, res, next) {
 
 
 app.get('/', function(req, res) {
+    // fs.readFile(path.join(__dirname, '../../client/index.html'), 'utf8', function(err, data) {
+    //     if (err) {
+    //         console.log(err);
+    //     }
+    //     console.log('i am basic');
+    //     res.end(data)
+    // });
     res.sendFile(path.join(__dirname, '../../client/index.html'));
 });
 

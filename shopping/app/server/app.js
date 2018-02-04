@@ -4,7 +4,13 @@ var express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
     port = 3000
-    app.use('/client', express.static(path.join(__dirname, 'client')));
+
+app.use(express.static('./client'));
+app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use('/client', express.static(path.join(__dirname, 'client')));
+// app.use('/client', express.static('./client'));
+
+
 
 require("./api/memberApi");
 require("./api/loginApi");

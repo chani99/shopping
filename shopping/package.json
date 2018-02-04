@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.8",
+    "angular-route": "^1.6.9",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "latest": "^0.2.0",
