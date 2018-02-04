@@ -8,37 +8,37 @@ require("../api/loginApi");
 
 
 app.get('/member', function(req, res) {
-    switch (req.params.data.acthion) {
-        case "getAll":
+    // switch (req.params.data.action) {
+    //     case "getAll":
             console.log('getting all members');
             Member.find({})
-                .exec(function(err, Member) {
+                .exec(function(err, member) {
                     if (err) {
                         res.send(404, 'Error has occurred!')
                     } else {
-                        console.log(Member);
-                        res.json(Member);
+                        console.log(member);
+                        res.json(member);
                     }
                 });
-            break;
-        case "getOne":
-            console.log('getting on Member');
-            Member.findOne({
-                _id: req.params.id // body-parser did it !!!!
-            }).exec(function(err, Member) {
-                if (err) {
-                    res.send(404, 'Error Occurred!')
-                } else {
-                    console.log(Member);
-                    res.json(Member);
-                }
-            });
-            break;
+        //     break;
+        // case "getOne":
+        //     console.log('getting on Member');
+        //     Member.findOne({
+        //         _id: req.params.id // body-parser did it !!!!
+        //     }).exec(function(err, Member) {
+        //         if (err) {
+        //             res.send(404, 'Error Occurred!')
+        //         } else {
+        //             console.log(Member);
+        //             res.json(Member);
+        //         }
+            // });
+            // break;
 
 
 
 
-    }
+    // }
 
 });
 

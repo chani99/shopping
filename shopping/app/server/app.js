@@ -4,7 +4,7 @@ var express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
     port = 3000
-app.use('/client', express.static(path.join(__dirname, 'client')))
+    app.use('/client', express.static(path.join(__dirname, 'client')));
 
 require("./api/memberApi");
 require("./api/loginApi");
@@ -13,7 +13,8 @@ require("./api/loginApi");
 
 // db configuration
 var db = 'mongodb://127.0.0.1/north';
-mongoose.connect(db, { useMongoClient: true });
+// mongoose.connect(db, { useMongoClient: true });
+mongoose.connect(db);
 var con = mongoose.connection;
 
 
